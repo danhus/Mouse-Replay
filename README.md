@@ -1,5 +1,5 @@
 # Mouse Recorder for Windows
-This is a tool for recording and replaying mouse events. It will install a low-level hook via _SetWindowsHookExA_, and will use this hook to record mouse movement, scrolling and clicking, including the middle mouse button and two side buttons. Only one instance can be recording or replaying, but multiple recording can be stored. At will, a recording can be played back, with a few options available to change its behavior.
+This is a tool for recording and replaying mouse events. It will install a low-level hook via _SetWindowsHookExA_, and will use this hook to record mouse movement, scrolling and clicking, including the middle mouse button and two side buttons. Only one instance can be recording or replaying, but multiple recording can be stored. At will, a recording can be played back, with a few options available to alter its behavior.
 
 ### Usage:
 ```
@@ -33,11 +33,11 @@ void MouseReplay::replay(
   bool blocking = true
 );
 ```
-```relative``` when true, replays start from the mouse position at the time of playback,
+```relative``` when true, replays start from the mouse position at the time of playback, and when false will use absolute coordinates
 
-```movement_only``` when true, will exclude clicks and scrolls during playback,
+```movement_only``` when true, will exclude clicks and scrolls during playback
 
-```blocking``` when false, will allow you to move your mouse at the same time that it's being played.
+```blocking``` when false, will allow you to move your mouse at the same time that it's being played
 
 ```
 mr1.reset();
