@@ -33,7 +33,7 @@ void MouseReplay::replay(
   bool blocking = true
 );
 ```
-```relative``` when true, replays start from the mouse position at the time of playback, and will otherwise use absolute coordinates
+```relative``` when true, replays start from the mouse position at the time of playback, and when false will use absolute coordinates
 
 ```movement_only``` when true, will exclude clicks and scrolls during playback
 
