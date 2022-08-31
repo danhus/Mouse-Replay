@@ -1,0 +1,6 @@
+.cache
+.git
+.vscode
+build
+.clang-format
+.clang-tidy

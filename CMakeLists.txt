@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.14)
+project(mousereplayproj)
+add_library(mousereplay mousereplay.cpp)
+set_target_properties(mousereplay PROPERTIES CXX_STANDARD 20)
+add_executable(sample sample.cpp)
+set_target_properties(sample PROPERTIES CXX_STANDARD 20)
+target_link_libraries(sample PUBLIC mousereplay)
