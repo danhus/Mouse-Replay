@@ -79,74 +79,68 @@ void MouseReplay::replay(bool relative, bool movement_only, bool blocking) {
             input.mi.dx = ((m_recorded[i].x + offset_x) * 65535) / m_width;
             input.mi.dy = ((m_recorded[i].y + offset_y) * 65535) / m_height;
 
+            input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE;
+            input.mi.mouseData = 0;
             switch (m_recorded[i].et) {
               case Move:
-                input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_MOVE;
                 break;
               case LMB_down:
-                input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_LEFTDOWN;
                 break;
               case LMB_up:
-                input.mi.dwFlags = MOUSEEVENTF_LEFTUP | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_LEFTUP;
                 break;
               case RMB_down:
-                input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_RIGHTDOWN;
                 break;
               case RMB_up:
-                input.mi.dwFlags = MOUSEEVENTF_RIGHTUP | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_RIGHTUP;
                 break;
               case MMB_down:
-                input.mi.dwFlags =
-                    MOUSEEVENTF_MIDDLEDOWN | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_MIDDLEDOWN;
                 break;
               case MMB_up:
-                input.mi.dwFlags = MOUSEEVENTF_MIDDLEUP | MOUSEEVENTF_ABSOLUTE;
-                input.mi.mouseData = 0;
+                input.mi.dwFlags |= MOUSEEVENTF_MIDDLEUP;
                 break;
               case ScrollUp:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = 1 * WHEEL_DELTA;
                 break;
               case ScrollUp_2:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = 2 * WHEEL_DELTA;
                 break;
               case ScrollUp_3:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = 3 * WHEEL_DELTA;
                 break;
               case ScrollDown:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = -1 * WHEEL_DELTA;
                 break;
               case ScrollDown_2:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = -2 * WHEEL_DELTA;
                 break;
               case ScrollDown_3:
-                input.mi.dwFlags = MOUSEEVENTF_WHEEL | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_WHEEL;
                 input.mi.mouseData = -3 * WHEEL_DELTA;
                 break;
               case Side1_down:
-                input.mi.dwFlags = MOUSEEVENTF_XDOWN | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_XDOWN;
                 input.mi.mouseData = XBUTTON1;
                 break;
               case Side1_up:
-                input.mi.dwFlags = MOUSEEVENTF_XUP | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_XUP;
                 input.mi.mouseData = XBUTTON1;
                 break;
               case Side2_down:
-                input.mi.dwFlags = MOUSEEVENTF_XDOWN | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_XDOWN;
                 input.mi.mouseData = XBUTTON2;
                 break;
               case Side2_up:
-                input.mi.dwFlags = MOUSEEVENTF_XUP | MOUSEEVENTF_ABSOLUTE;
+                input.mi.dwFlags |= MOUSEEVENTF_XUP;
                 input.mi.mouseData = XBUTTON2;
                 break;
               default:

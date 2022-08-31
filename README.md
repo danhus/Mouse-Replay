@@ -1,5 +1,5 @@
 # Mouse Recorder for Windows
-This is a tool for recording and replaying mouse events. It will install a low-level hook to intercept input events in Windows, and will use this hook to record mouse movement, scrolling and clicking, including the middle mouse button and two side buttons. Only one instance can be recording or replaying, but multiple recording can be stored. At will, a recording can be played back, with a few options available to change its behavior.
+This is a tool for recording and replaying mouse events. It will install a low-level hook via _SetWindowsHookExA_, and will use this hook to record mouse movement, scrolling and clicking, including the middle mouse button and two side buttons. Only one instance can be recording or replaying, but multiple recording can be stored. At will, a recording can be played back, with a few options available to change its behavior.
 
 ### Usage:
 ```
