@@ -27,26 +27,7 @@ class MouseReplay {
   [[nodiscard]] Time_t duration() const;
 
  private:
-  enum EventType : char {
-    Move,
-    LMB_down,
-    LMB_up,
-    RMB_down,
-    RMB_up,
-    MMB_down,
-    MMB_up,
-    ScrollUp,
-    ScrollUp_2,
-    ScrollUp_3,
-    ScrollDown,
-    ScrollDown_2,
-    ScrollDown_3,
-    Side1_down,
-    Side1_up,
-    Side2_down,
-    Side2_up,
-    Invalid
-  };
+  enum EventType : char;
   struct MouseEvent {
     Coord_t x; // coords end up being off by 1 pixel (!)
     Coord_t y;

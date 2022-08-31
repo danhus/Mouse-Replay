@@ -8,6 +8,27 @@ int MouseReplay::m_width{0};
 int MouseReplay::m_height{0};
 bool MouseReplay::m_blocking_active{false};
 
+enum MouseReplay::EventType : char {
+  Move,
+  LMB_down,
+  LMB_up,
+  RMB_down,
+  RMB_up,
+  MMB_down,
+  MMB_up,
+  ScrollUp,
+  ScrollUp_2,
+  ScrollUp_3,
+  ScrollDown,
+  ScrollDown_2,
+  ScrollDown_3,
+  Side1_down,
+  Side1_up,
+  Side2_down,
+  Side2_up,
+  Invalid
+};
+
 MouseReplay::MouseReplay() {
   ++m_count;
   if (!m_hook) {
