@@ -63,7 +63,6 @@ void MouseReplay::replay(bool relative, bool movement_only, bool blocking) {
 
           INPUT input;
           input.type = INPUT_MOUSE;
-          input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE;
           input.mi.time = 0;
           input.mi.dwExtraInfo = 0;
 

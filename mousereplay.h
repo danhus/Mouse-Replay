@@ -56,7 +56,8 @@ class MouseReplay {
   std::vector<MouseEvent> m_recorded;
   static HHOOK m_hook;
   static int m_count;
-  static LRESULT CALLBACK HookCallbackProc(int, WPARAM, LPARAM);
+  static LRESULT CALLBACK
+  HookCallbackProc(int, WPARAM, LPARAM); // fix time; record time with chrono
   static bool m_blocking_active;
   static MouseReplay* m_active; // LOCKS!
   static int m_width;
