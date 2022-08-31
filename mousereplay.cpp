@@ -105,7 +105,7 @@ void MouseReplay::replay(bool relative, bool movement_only, bool blocking) {
             input.mi.dx = ((m_recorded[i].x + offset_x) * 65535) / m_width;
             input.mi.dy = ((m_recorded[i].y + offset_y) * 65535) / m_height;
 
-            input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE;
+            input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE;
             input.mi.mouseData = 0;
             switch (m_recorded[i].et) {
               case Move:
