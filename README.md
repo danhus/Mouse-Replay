@@ -33,11 +33,11 @@ void MouseReplay::replay(
   bool blocking = true
 );
 ```
-```relative``` when true, replays start from the mouse position at the time of playback,
+```relative``` when true, replays start from the mouse position at the time of playback, and will otherwise use absolute coordinates
 
-```movement_only``` when true, will exclude clicks and scrolls during playback,
+```movement_only``` when true, will exclude clicks and scrolls during playback
 
-```blocking``` when false, will allow you to move your mouse at the same time that it's being played.
+```blocking``` when false, will allow you to move your mouse at the same time that it's being played
 
 ```
 mr1.reset();
