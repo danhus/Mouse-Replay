@@ -1,5 +1,8 @@
 #include "mousereplay.h"
 #include <winuser.h>
+#include <chrono>
+#include <iostream>
+#include <thread>
 
 HHOOK MouseReplay::m_hook{nullptr};
 int MouseReplay::m_count{0};
@@ -7,6 +10,7 @@ MouseReplay* MouseReplay::m_active{nullptr};
 int MouseReplay::m_width{0};
 int MouseReplay::m_height{0};
 bool MouseReplay::m_blocking_active{false};
+bool MouseReplay::m_replay_active{false};
 
 enum MouseReplay::EventType : char {
   Move,
@@ -76,11 +80,12 @@ void MouseReplay::replay(bool relative, bool movement_only, bool blocking) {
   /*"The time field in the MOUSE­INPUT structure is not for introducing delays
    * in playback."*/
 
-  if (m_recorded.size() > 0) {
+  if (m_recorded.size() > 0 && !m_replay_active) {
     std::thread replay_worker{
         [&](bool relative, bool movement_only, bool blocking) {
           if (blocking)
             m_blocking_active = true;
+          m_replay_active = true;
 
           INPUT input;
           input.type = INPUT_MOUSE;
@@ -185,6 +190,7 @@ void MouseReplay::replay(bool relative, bool movement_only, bool blocking) {
             SendInput(1, &input, sizeof(INPUT));
           if (blocking)
             m_blocking_active = false;
+          m_replay_active = false;
         },
         relative,
         movement_only,

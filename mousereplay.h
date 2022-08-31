@@ -3,9 +3,6 @@
 
 #include <windows.h>
 #include <winuser.h>
-#include <chrono>
-#include <iostream>
-#include <thread>
 #include <vector>
 
 class MouseReplay {
@@ -40,6 +37,7 @@ class MouseReplay {
   static LRESULT CALLBACK
   HookCallbackProc(int, WPARAM, LPARAM); // fix time; record time with chrono
   static bool m_blocking_active;
+  static bool m_replay_active;
   static MouseReplay* m_active; // LOCKS!
   static int m_width;
   static int m_height;
