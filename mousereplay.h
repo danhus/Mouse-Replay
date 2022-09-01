@@ -2,7 +2,6 @@
 #define MOUSEREPLAY_H
 
 #include <windows.h>
-#include <winuser.h>
 #include <vector>
 
 class MouseReplay {
@@ -34,11 +33,13 @@ class MouseReplay {
   std::vector<MouseEvent> m_recorded;
   static HHOOK m_hook;
   static int m_count;
-  static LRESULT CALLBACK
-  HookCallbackProc(int, WPARAM, LPARAM); // fix time; record time with chrono
+  static LRESULT CALLBACK HookCallbackProc(
+      int,
+      WPARAM,
+      LPARAM); // built-in timestamp too imprecise; record time with chrono
   static bool m_blocking_active;
   static bool m_replay_active;
-  static MouseReplay* m_active; // LOCKS!
+  static MouseReplay* m_active; // use locks
   static int m_width;
   static int m_height;
 };

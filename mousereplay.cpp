@@ -1,5 +1,4 @@
 #include "mousereplay.h"
-#include <winuser.h>
 #include <chrono>
 #include <iostream>
 #include <thread>
