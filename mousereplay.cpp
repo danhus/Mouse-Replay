@@ -71,7 +71,7 @@ bool MouseReplay::record() {
 }
 
 bool MouseReplay::record(Time_t duration) {
-  bool ret = duration > 0 && record();
+  bool ret = duration > 0 && record(); // short-circuit eval
   if (ret) {
     std::thread stopper_worker{[=]() {
       // std::async
