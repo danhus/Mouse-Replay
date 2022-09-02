@@ -46,8 +46,13 @@ MouseReplay::MouseReplay() {
       std::cerr << "Could not determine screen resolution.\n";
   }
 }
+MouseReplay::MouseReplay(const MouseReplay& rhs) : m_recorded(rhs.m_recorded) {
+  ++m_count;
+}
 MouseReplay::MouseReplay(MouseReplay&& rhs) noexcept
-    : m_recorded(std::move(rhs.m_recorded)) {}
+    : m_recorded(std::move(rhs.m_recorded)) {
+  ++m_count;
+}
 MouseReplay& MouseReplay::operator=(MouseReplay&& rhs) noexcept {
   m_recorded = std::move(rhs.m_recorded);
   return *this;

@@ -11,7 +11,7 @@ class MouseReplay {
 
  public:
   MouseReplay();
-  MouseReplay(const MouseReplay&) = default;
+  MouseReplay(const MouseReplay&);
   MouseReplay(MouseReplay&&) noexcept;
   MouseReplay& operator=(const MouseReplay&) = default;
   MouseReplay& operator=(MouseReplay&&) noexcept;
