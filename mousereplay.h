@@ -11,6 +11,10 @@ class MouseReplay {
 
  public:
   MouseReplay();
+  MouseReplay(const MouseReplay&) = default;
+  MouseReplay(MouseReplay&&) noexcept;
+  MouseReplay& operator=(const MouseReplay&) = default;
+  MouseReplay& operator=(MouseReplay&&) noexcept;
   ~MouseReplay();
   bool record();
   bool record(Time_t);

@@ -46,6 +46,12 @@ MouseReplay::MouseReplay() {
       std::cerr << "Could not determine screen resolution.\n";
   }
 }
+MouseReplay::MouseReplay(MouseReplay&& rhs) noexcept
+    : m_recorded(std::move(rhs.m_recorded)) {}
+MouseReplay& MouseReplay::operator=(MouseReplay&& rhs) noexcept {
+  m_recorded = std::move(rhs.m_recorded);
+  return *this;
+}
 MouseReplay::~MouseReplay() {
   if (--m_count == 0) {
     UnhookWindowsHookEx(m_hook);
